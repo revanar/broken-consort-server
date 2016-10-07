@@ -12,6 +12,11 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/ubuntu-xenial-16.04-cloudimg-console.log
+
+# Ignore cookbooks and vagrant config
+/cookbooks/*
+/.vagrant/*
 
 # Ignore Byebug command history file.
 .byebug_history
