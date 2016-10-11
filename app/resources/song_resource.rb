@@ -1,5 +1,6 @@
 class SongResource < JSONAPI::Resource
-  attributes :name, :song_no, :parts_no, :has_text, :is_transcribed, :pdf_path
+  attributes :name, :song_no, :parts_no, :has_text, :is_transcribed
+  attribute :pdf, delegate: :pdf_path
 
   has_one :composer
   has_one :book
