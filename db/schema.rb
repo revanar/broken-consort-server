@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930140409) do
+ActiveRecord::Schema.define(version: 20161011212432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,10 +57,9 @@ ActiveRecord::Schema.define(version: 20160930140409) do
     t.integer  "song_no"
     t.integer  "parts_no"
     t.boolean  "has_text"
-    t.boolean  "is_transcribed"
     t.string   "pdf_path"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "composer_id"
     t.integer  "book_id"
     t.index ["book_id"], name: "index_songs_on_book_id", using: :btree
