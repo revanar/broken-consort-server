@@ -16,7 +16,7 @@ Editor.find_by_name('Dowland')
     .books.create(name:'First Book of Songs', abbr:'1stBS', year:1597, thumb_path: '/thumb/first_book_of_songs/full', pdf_path: '/pdf/1stbs/full')
 
 Book.find_by_name('Pavans Galliards Almains')
-    .songs.create(name: 'Bona Speranza', song_no: 1, parts_no: 5, has_text: false, is_transcribed: true, pdf_path: '/pdf/pga/1')
+    .songs.create(name: 'Bona Speranza', song_no: 1, parts_no: 5, has_text: false, is_transcribed: true, pdf_path: "data:application/pdf;base64,#{Base64.encode64(File.read('test.pdf'))}")
 Book.find_by_name('Pavans Galliards Almains')
     .songs.create(name: 'Tears of the Muses', song_no: 2, parts_no: 5, has_text: false, is_transcribed: true, pdf_path: '/pdf/pga/2')
 Book.find_by_name('Pavans Galliards Almains')
