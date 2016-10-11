@@ -31,6 +31,8 @@ Book.find_by_name('First Book of Songs')
 Composer.create(name: 'Example Composer').songs << Song.find_by_name('Bona Speranza')
 Composer.create(name: 'Test Man').songs << Song.find_by_name('Tears of the Muses')
 
+Language.create(name: 'English').songs << Song.all
+
 Collection.create(name:'Test Collection', creator: "Emmaface", desc: "A description of this test collection", thumb_path:'/thumb/collections/test_collection', pdf_path: '/pdf/collections/test_collection')
 Collection.create(name:'Test Collection 2', creator: "Duck with a face", desc: "A very quacky collection", thumb_path:'/thumb/collections/test_collection_2', pdf_path: '/pdf/collections/test_collection_2')
 
