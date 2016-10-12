@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Editor.create(name: 'Holborne')
 Editor.create(name: 'Dowland')
+Editor.create(name: 'Unused editor')
 
 Editor.find_by_name('Holborne')
     .books.create(name:'Pavans Galliards Almains', abbr:'PGA', year:1599, thumb_path: '/thumb/pga/full', pdf_path: '/pdf/pga/full')
@@ -14,6 +15,7 @@ Editor.find_by_name('Dowland')
     .books.create(name:'Lachrimae', abbr:'Lach', year:1605, thumb_path: '/thumb/lach/full', pdf_path: '/pdf/lach/full')
 Editor.find_by_name('Dowland')
     .books.create(name:'First Book of Songs', abbr:'1stBS', year:1597, thumb_path: '/thumb/first_book_of_songs/full', pdf_path: '/pdf/1stbs/full')
+Book.create(name: 'Unused Book')
 
 Book.find_by_name('Pavans Galliards Almains')
     .songs.create(name: 'Bona Speranza', song_no: 1, parts_no: 5, has_text: false, pdf_path: "data:application/pdf;base64,#{Base64.encode64(File.read('test.pdf'))}")
@@ -30,6 +32,7 @@ Book.find_by_name('First Book of Songs')
 
 Composer.create(name: 'Example Composer').songs << Song.find_by_name('Bona Speranza')
 Composer.create(name: 'Test Man').songs << Song.find_by_name('Tears of the Muses')
+Composer.create(name: 'Unusued Composer')
 
 Language.create(name: 'English').songs << Song.all
 
