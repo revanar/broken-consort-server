@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011214136) do
+ActiveRecord::Schema.define(version: 20161014165906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 20161011214136) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "languages_songs", id: false, force: :cascade do |t|
+    t.integer "song_id"
+    t.integer "language_id"
+    t.index ["language_id"], name: "index_languages_songs_on_language_id", using: :btree
+    t.index ["song_id"], name: "index_languages_songs_on_song_id", using: :btree
+  end
+
   create_table "migrations", primary_key: "version", id: :string, limit: 16, force: :cascade do |t|
   end
 
@@ -62,16 +69,13 @@ ActiveRecord::Schema.define(version: 20161011214136) do
     t.string   "name"
     t.integer  "song_no"
     t.integer  "parts_no"
-    t.boolean  "has_text"
     t.string   "pdf_path"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "composer_id"
     t.integer  "book_id"
-    t.integer  "language_id"
     t.index ["book_id"], name: "index_songs_on_book_id", using: :btree
     t.index ["composer_id"], name: "index_songs_on_composer_id", using: :btree
-    t.index ["language_id"], name: "index_songs_on_language_id", using: :btree
   end
 
   create_table "songs_tags", id: false, force: :cascade do |t|
@@ -98,9 +102,10 @@ ActiveRecord::Schema.define(version: 20161011214136) do
   end
 
   add_foreign_key "books", "editors"
+  add_foreign_key "languages_songs", "languages"
+  add_foreign_key "languages_songs", "songs"
   add_foreign_key "songs", "books"
   add_foreign_key "songs", "composers"
-  add_foreign_key "songs", "languages"
   add_foreign_key "songs_tags", "songs"
   add_foreign_key "songs_tags", "tags"
 end

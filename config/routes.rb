@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   jsonapi_resources :editors
   jsonapi_resources :collections
   jsonapi_resources :tags
+  jsonapi_resources :languages
 end
