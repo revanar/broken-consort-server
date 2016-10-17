@@ -1,5 +1,5 @@
 class SongResource < JSONAPI::Resource
-  attributes :name, :song_no, :parts_no
+  attributes :name, :song_no, :parts_no, :remove_pdf_path
   attribute :pdf, delegate: :pdf_path
 
   has_one :composer
@@ -12,4 +12,5 @@ class SongResource < JSONAPI::Resource
   def self.sortable_fields(context)
     super(context) << :"book.name"
   end
+
 end
