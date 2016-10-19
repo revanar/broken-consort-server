@@ -7,10 +7,10 @@ class SongResource < JSONAPI::Resource
   has_many :languages, acts_as_set: true
   has_many :tags, acts_as_set: true
 
-  filters :parts_no
+  filters :pdf_path
 
   def self.sortable_fields(context)
-    super(context) << :"book.name"
+    super(context) << :"book.name" #note: only book.name needs to be added here because it's a relationship field.
   end
 
 end
