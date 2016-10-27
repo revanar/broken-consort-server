@@ -50,7 +50,7 @@ class PdfUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :cover
     process :convert => 'png'
-    process :resize_to_fit => [200, 300]
+    process :resize_to_fit => [160, 207]
     process :set_content_type_png
     def full_filename (for_file = model.document.file)
       super.chomp(File.extname(super)) + '.png'
