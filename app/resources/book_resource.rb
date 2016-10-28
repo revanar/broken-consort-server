@@ -1,6 +1,7 @@
 class BookResource < JSONAPI::Resource
-  attributes :name, :abbr, :year, :thumb_path, :remove_pdf_path
+  attributes :name, :abbr, :year, :remove_pdf_path, :remove_thumb_path
   attribute :pdf, delegate: :pdf_path
+  attribute :thumb, delegate: :thumb_path
 
   filters :pdf_path
 
