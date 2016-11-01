@@ -7,4 +7,8 @@ class BookResource < JSONAPI::Resource
 
   has_many :songs
   has_one :editor
+
+  def self.default_sort
+    [{field: 'name', direction: :asc}]
+  end
 end

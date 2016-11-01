@@ -13,4 +13,7 @@ class SongResource < JSONAPI::Resource
     super(context) << :"book.name" #note: only book.name needs to be added here because it's a relationship field.
   end
 
+  def self.default_sort
+    [{field: 'book.name', direction: :asc}, {field: 'song_no', direction: :asc}]
+  end
 end
