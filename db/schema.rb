@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20161014165906) do
   add_foreign_key "books", "editors"
   add_foreign_key "languages_songs", "languages"
   add_foreign_key "languages_songs", "songs"
-  add_foreign_key "songs", "books"
+  add_foreign_key "songs", "books", on_delete: :nullify
   add_foreign_key "songs", "composers"
   add_foreign_key "songs_tags", "songs"
   add_foreign_key "songs_tags", "tags"
