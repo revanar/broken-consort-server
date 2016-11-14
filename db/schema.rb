@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014165906) do
+ActiveRecord::Schema.define(version: 20161114184752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
-    t.string   "abbr"
     t.integer  "year"
     t.string   "thumb_path"
     t.string   "pdf_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "editor_id"
+    t.string   "desc"
     t.index ["editor_id"], name: "index_books_on_editor_id", using: :btree
   end
 
